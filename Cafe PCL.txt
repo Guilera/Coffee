@@ -1,0 +1,55 @@
+﻿Maquina{
+----------------------------------------------------------------------
+	String modelo, endereco;
+	double faturamento;
+	Estoque estoque;
+	ArrayList<Administrador> logins;
+	ArrayList<Bebida> historico_pedidos;
+----------------------------------------------------------------------
+	Bebida fazerPedido(String nome_bebida);
+	void exibePreco(Bebida x);
+	void recebeDinheiro();
+	/* ELABORAR OS OUTROS METODOS */
+}
+
+Administrador{
+----------------------------------------------------------------------
+	String nome, cpf, username, senha;
+	boolean gerente;
+----------------------------------------------------------------------
+	boolean senhaCorreta(String x);
+	void trocarSenha(String senha_velha, String senha_nova);
+}
+
+Estoque{
+----------------------------------------------------------------------
+	double maxCafe, maxLeite, maxChocolate, maxCanela, maxAcucar;
+----------------------------------------------------------------------
+	void fazPedido(Bebida b);
+	/* ELABORAR OS METODOS */
+
+abstract Bebida{
+-----------------------------------------------------------------
+	double preco;
+	int acucar;
+	String tamanho; 
+-----------------------------------------------------------------
+	static boolean temIngredientes(Estoque es);
+	double calculaPreco();
+}
+
+Cafe extends Bebida{
+	double xCafe;
+}
+
+CafeComLeite extends Cafe{
+	double xLeite;
+}
+
+Cappucino extends Bebida{
+	double xCafe, xChocolate, xLeite, xCanela;
+}
+
+Chocolate extends Bebida{
+	double xChocolate, xLeite;
+}
