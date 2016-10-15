@@ -42,4 +42,20 @@ public class Estoque{
 	public void consomeAcucar(double qtd){
 		maxAcucar = maxAcucar - qtd;
 	}
+
+	public double getCafe(){
+		return cafe;
+	}
+
+	public double getLeite(){
+		return leite;
+	}
+	
+	public double getChocolate(){
+		return chocolate;
+	}
+
+	public double getCanela(){
+		return canela;
+	}
 }

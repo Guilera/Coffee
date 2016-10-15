@@ -7,11 +7,18 @@ public class Cafe extends Bebida{
 	}
 
 	@Override
-	public static double calculaPreco(double acucar){
-		if(getTamanho == 'P') return precoP + 0.05*acucar;
-		else if(getTamanho() == 'M') return precoM + 0.05*acucar;
-		else return precoG + 0.05*acucar;
+	public static double calculaPreco(char tamanho){
+		if(getTamanho == 'P') return precoP;
+		else if(tamanho == 'M') return precoM;
+		else return precoG;
 	}
+
+	public static double cafeNecessario(tamanho){
+		if(tamanho == 'P') return cafeP;
+		else if(tamanho == 'M') return cafeM;
+		else return cafeG;
+	}
+
 }
 	
 	

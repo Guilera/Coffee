@@ -7,10 +7,23 @@ public class CafeComLeite extends Cafe{
 	}
 
 	@Override
-	public static double calculaPreco(double acucar){
-		if(getTamanho == 'P') return precoP + 0.05*acucar;
-		else if(getTamanho() == 'M') return precoM + 0.05*acucar;
-		else return precoG + 0.05*acucar;
+	public static double calculaPreco(char tamanho){
+		if(tamanho == 'P') return precoP;
+		else if(tamanho == 'M') return precoM;
+		else return precoG;
 	}
+
+	public static double leiteNecessario(tamanho){
+		if(tamanho == 'P') return leiteP;
+		else if(tamanho == 'M') return leiteM;
+		else return leiteG;
+	}
+	
+	public static double cafeNecessario(tamanho){
+		if(tamanho == 'P') return cafeP;
+		else if(tamanho == 'M') return cafeM;
+		else return cafeG;
+	}
+
 }
 	

@@ -8,9 +8,22 @@ public class Chocolate extends Bebida{
 	}
 
 	@Override
-	public static double calculaPreco(double acucar){
-		if(getTamanho == 'P') return precoP + 0.05*acucar;
-		else if(getTamanho() == 'M') return precoM + 0.05*acucar;
-		else return precoG + 0.05*acucar;
+	public static double calculaPreco(char tamanho){
+		if(tamanho == 'P') return precoP;
+		else if(tamanho == 'M') return precoM;
+		else return precoG;
 	}
+
+	public static double leiteNecessario(tamanho){
+		if(tamanho == 'P') return leiteP;
+		else if(tamanho == 'M') return leiteM;
+		else return leiteG;
+	}
+
+	public static double chocolateNecessario(tamanho){
+		if(tamanho == 'P') return chocolateP;
+		else if(tamanho == 'M') return chocolateM;
+		else return chocolateG;
+	}
+
 }
