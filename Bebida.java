@@ -1,4 +1,4 @@
-//polimorfismo calculaPreco() e ingredientes necessarios(?)
+//polimorfismo calculaPreco() temIngredientes()
 public abstract class Bebida{
 	private double preco;
 	private char tamanho;
@@ -18,27 +18,7 @@ public abstract class Bebida{
 		else return 3;
 	}
 
-	public static double leiteNecessario(tamanho){
-		if(tamanho == 'P') return 0;
-		else if(tamanho == 'M') return 0;
-		else return 0;
-	}
-	
-	public static double cafeNecessario(tamanho){
-		if(tamanho == 'P') return 0;
-		else if(tamanho == 'M') return 0;
-		else return 0;
-	}
-
-	public static double chocolateNecessario(tamanho){
-		if(tamanho == 'P') return 0;
-		else if(tamanho == 'M') return 0;
-		else return 0;
-	}
-
-	public static double canelaNecessario(tamanho){
-		if(tamanho == 'P') return 0;
-		else if(tamanho == 'M') return 0;
-		else return 0;
+	public static boolean temIngredientes(char tamanho){
+		return true;
 	}
 }

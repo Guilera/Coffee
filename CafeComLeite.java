@@ -12,18 +12,30 @@ public class CafeComLeite extends Cafe{
 		else if(tamanho == 'M') return precoM;
 		else return precoG;
 	}
-
-	public static double leiteNecessario(tamanho){
-		if(tamanho == 'P') return leiteP;
-		else if(tamanho == 'M') return leiteM;
-		else return leiteG;
-	}
 	
-	public static double cafeNecessario(tamanho){
-		if(tamanho == 'P') return cafeP;
-		else if(tamanho == 'M') return cafeM;
-		else return cafeG;
+	@Override
+	public static boolean temIngredientes(char tamanho){
+		if(tamanho == 'P'){ 
+			if(cafeP <= Estoque.getCafe() && leiteP <= Estoque.getLeite()) return true;
+		}
+		else if(tamanho == 'M'){
+			if(cafeM <= Estoque.getCafe() && leiteM <= Estoque.getLeite()) return true;
+		}
+		else if(cafeG <= Estoque.getCafe() && leiteG <= Estoque.getLeite()) return true;
+		return false;
 	}
+
+	public static boolean temIngredientes2(char tamanho){
+		if(tamanho == 'P'){ 
+			if(cafeP2 <= Estoque.getCafe() && leiteP2 <= Estoque.getLeite()) return true;
+		}
+		else if(tamanho == 'M'){
+			if(cafeM2 <= Estoque.getCafe() && leiteM2 <= Estoque.getLeite()) return true;
+		}
+		else if(cafeG2 <= Estoque.getCafe() && leiteG2 <= Estoque.getLeite()) return true;
+		return false;
+	}
+		
 
 }
 	

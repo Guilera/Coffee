@@ -14,27 +14,15 @@ public class Cappucino extends CafeComLeite{
 		else return precoG;
 	}
 
-	public static double leiteNecessario(tamanho){
-		if(tamanho == 'P') return leiteP;
-		else if(tamanho == 'M') return leiteM;
-		else return leiteG;
-	}
-	
-	public static double cafeNecessario(tamanho){
-		if(tamanho == 'P') return cafeP;
-		else if(tamanho == 'M') return cafeM;
-		else return cafeG;
-	}
-
-	public static double chocolateNecessario(tamanho){
-		if(tamanho == 'P') return chocolateP;
-		else if(tamanho == 'M') return chocolateM;
-		else return chocolateG;
-	}
-
-	public static double canelaNecessario(tamanho){
-		if(tamanho == 'P') return canelaP;
-		else if(tamanho == 'M') return canelaM;
-		else return canelaG;
+	@Override
+	public static boolean temIngredientes(char tamanho){
+		if(tamanho == 'P'){ 
+			if(cafeP <= Estoque.getCafe() && leiteP <= Estoque.getLeite() && chocolateP <= Estoque.getChocolate() && canelaP <= Estoque.getCanela()) return true;
+		}
+		else if(tamanho == 'M'){
+			if(cafeM <= Estoque.getCafe() && leiteM <= Estoque.getLeite() && chocolateP <= Estoque.getChocolate() && canelaP <= Estoque.getCanela()) return true;
+		}
+		else if(cafeG <= Estoque.getCafe() && leiteG <= Estoque.getLeite() && chocolateP <= Estoque.getChocolate() && canelaP <= Estoque.getCanela()) return true;
+		return false;
 	}
 }

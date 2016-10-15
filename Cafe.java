@@ -13,10 +13,16 @@ public class Cafe extends Bebida{
 		else return precoG;
 	}
 
-	public static double cafeNecessario(tamanho){
-		if(tamanho == 'P') return cafeP;
-		else if(tamanho == 'M') return cafeM;
-		else return cafeG;
+	@Override
+	public static boolean temIngredientes(char tamanho){
+		if(tamanho == 'P'){ 
+			if(cafeP <= Estoque.getCafe()) return true;
+		}
+		else if(tamanho == 'M'){
+			if(cafeM <= Estoque.getCafe()) return true;
+		}
+		else if(cafeG <= Estoque.getCafe()) return true;
+		return false;
 	}
 
 }

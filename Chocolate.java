@@ -14,16 +14,16 @@ public class Chocolate extends Bebida{
 		else return precoG;
 	}
 
-	public static double leiteNecessario(tamanho){
-		if(tamanho == 'P') return leiteP;
-		else if(tamanho == 'M') return leiteM;
-		else return leiteG;
-	}
-
-	public static double chocolateNecessario(tamanho){
-		if(tamanho == 'P') return chocolateP;
-		else if(tamanho == 'M') return chocolateM;
-		else return chocolateG;
+	@Override
+	public static boolean temIngredientes(char tamanho){
+		if(tamanho == 'P'){ 
+			if(chocolateP <= Estoque.getChocolate() && leiteP <= Estoque.getLeite()) return true;
+		}
+		else if(tamanho == 'M'){
+			if(chocolateM <= Estoque.getChocolate() && leiteM <= Estoque.getLeite()) return true;
+		}
+		else if(chocolateG <= Estoque.getChocolate() && leiteG <= Estoque.getLeite()) return true;
+		return false;
 	}
 
 }
