@@ -1,61 +1,63 @@
 public class Estoque{
-	private static double maxCafe=0, maxLeite=0, maxAcucar=0, maxChocolate=0, maxCanela=0;
+	private static double cafe=1000, leite=1000, acucar=1000, chocolate=1000, canela=1000;
 
 	public Estoque(){}
 
-	public void adicionaCafe(){
-		maxCafe = 1000;
+	public static void completaCafe(){
+		cafe = 1000;
 	}
 	
-	public void adicionaLeite(){
-		maxLeite = 1000;
+	public static void completaLeite(){
+		leite = 1000;
 	}
 
-	public void adicionaChocolate(){
-		maxChocolate = 1000;
+	public static void completaChocolate(){
+		chocolate = 1000;
 	}
 
-	public void adicionaCanela(){
-		maxCanela = 1000;
+	public static void completaCanela(){
+		canela = 1000;
 	}
 
-	public void adicionaAcucar(){
-		maxAcucar = 1000;
+	public static void completaAcucar(){
+		acucar = 1000;
 	}
 
-	public void consomeCafe(double qtd){
-		maxCafe = maxCafe - qtd;
+	public static void consomeCafe(double qtd){
+		cafe -= qtd;
 	}
 
-	public void consomeLeite(double qtd){
-		maxLeite = maxLeite - qtd;
+	public static void consomeLeite(double qtd){
+		leite -= qtd;
 	}
 
-	public void consomeChocolate(double qtd){
-		maxChocolate = maxChocolate - qtd;
+	public static void consomeChocolate(double qtd){
+		chocolate -= qtd;
 	}
 
-	public void consomeCanela(double qtd){
-		maxCanela = maxCanela - qtd;
+	public static void consomeCanela(double qtd){
+		canela -= qtd;
 	}
 
-	public void consomeAcucar(double qtd){
-		maxAcucar = maxAcucar - qtd;
+	public static void consomeAcucar(double qtd){
+		acucar -= qtd;
 	}
 
-	public double getCafe(){
+	public static double getCafe(){
 		return cafe;
 	}
 
-	public double getLeite(){
+	public static double getLeite(){
 		return leite;
 	}
 	
-	public double getChocolate(){
+	public static double getChocolate(){
 		return chocolate;
 	}
 
-	public double getCanela(){
+	public static double getCanela(){
 		return canela;
 	}
+
+	public static double getAcucar(){ return acucar; }
 }

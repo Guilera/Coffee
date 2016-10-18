@@ -1,41 +1,32 @@
 public class CafeComLeite extends Cafe{
-	private double xLeite;
+	private double leite;
 	
-	public CafeComLeite(double preco, int tamanho, double xCafe, double xLeite){
-		super(preco,tamanho,xCafe);
-		this.xLeite = xLeite;
+	public CafeComLeite(double preco, char tamanho, double proporcaoLeite){
+		super(preco,tamanho);
+		super.setCafe(xCafe(tamanho, (1-proporcaoLeite)));
+		this.leite = xLeite(tamanho, proporcaoLeite);
 	}
 
-	@Override
-	public static double calculaPreco(char tamanho){
-		if(tamanho == 'P') return precoP;
-		else if(tamanho == 'M') return precoM;
-		else return precoG;
-	}
-	
-	@Override
-	public static boolean temIngredientes(char tamanho){
-		if(tamanho == 'P'){ 
-			if(cafeP <= Estoque.getCafe() && leiteP <= Estoque.getLeite()) return true;
+	public static double xCafe(char tamanho, double proporcaoCafe){
+		switch(tamanho){
+			case'P': return 16*proporcaoCafe;
+			case'M': return 32*proporcaoCafe;
+			case'G': return 48*proporcaoCafe;
 		}
-		else if(tamanho == 'M'){
-			if(cafeM <= Estoque.getCafe() && leiteM <= Estoque.getLeite()) return true;
-		}
-		else if(cafeG <= Estoque.getCafe() && leiteG <= Estoque.getLeite()) return true;
-		return false;
+		return 0;
 	}
 
-	public static boolean temIngredientes2(char tamanho){
-		if(tamanho == 'P'){ 
-			if(cafeP2 <= Estoque.getCafe() && leiteP2 <= Estoque.getLeite()) return true;
+	public static double xLeite(char tamanho, double proporcaoLeite){
+		switch(tamanho){
+			case'P': return 16*proporcaoLeite;
+			case'M': return 32*proporcaoLeite;
+			case'G': return 48*proporcaoLeite;
 		}
-		else if(tamanho == 'M'){
-			if(cafeM2 <= Estoque.getCafe() && leiteM2 <= Estoque.getLeite()) return true;
-		}
-		else if(cafeG2 <= Estoque.getCafe() && leiteG2 <= Estoque.getLeite()) return true;
-		return false;
+		return 0;
 	}
-		
 
+	public static boolean temIngrediente(char tamanho, double proporcaoLeite){
+		return Estoque.getCafe() >= xCafe(tamanho, 1-proporcaoLeite) && Estoque.getLeite() >= xLeite(tamanho, proporcaoLeite);
+	}
 }
 	
