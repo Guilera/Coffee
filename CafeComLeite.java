@@ -1,32 +1,63 @@
 public class CafeComLeite extends Cafe{
-	private double leite;
+	private final double leiteP = 16;
+	private final double leiteM = 32;
+	private final double leiteG = 48;
+	private double proporcaoLeite;
 	
 	public CafeComLeite(double preco, char tamanho, double proporcaoLeite){
 		super(preco,tamanho);
-		super.setCafe(xCafe(tamanho, (1-proporcaoLeite)));
-		this.leite = xLeite(tamanho, proporcaoLeite);
+		this.proporcaoLeite = proporcaoLeite;
 	}
 
-	public static double xCafe(char tamanho, double proporcaoCafe){
-		switch(tamanho){
-			case'P': return 16*proporcaoCafe;
-			case'M': return 32*proporcaoCafe;
-			case'G': return 48*proporcaoCafe;
+	@Override
+	public void fazBebida(char tamanho){
+		if(tamanho == 'P'){
+			Estoque.consomeCafe(getCafeP()*(1-proporcaoLeite));
+			Estoque.consomeLeite(leiteP*proporcaoLeite);
 		}
-		return 0;
-	}
-
-	public static double xLeite(char tamanho, double proporcaoLeite){
-		switch(tamanho){
-			case'P': return 16*proporcaoLeite;
-			case'M': return 32*proporcaoLeite;
-			case'G': return 48*proporcaoLeite;
+		else if(tamanho == 'M'){
+			Estoque.consomeCafe(getCafeM()*(1-proporcaoLeite));
+			Estoque.consomeLeite(leiteM*proporcaoLeite);
 		}
-		return 0;
+		else {
+			Estoque.consomeCafe(getCafeG()*(1-proporcaoLeite));
+			Estoque.consomeLeite(leiteG*proporcaoLeite);
+		}
 	}
 
-	public static boolean temIngrediente(char tamanho, double proporcaoLeite){
-		return Estoque.getCafe() >= xCafe(tamanho, 1-proporcaoLeite) && Estoque.getLeite() >= xLeite(tamanho, proporcaoLeite);
+	@Override
+	public boolean checaIngredientes(char tamanho){
+		if(tamanho == 'P'){
+			if(getCafeP()*(1-proporcaoLeite) <= Estoque.getCafe() && leiteP*proporcaoLeite <= Estoque.getLeite()){
+				return true;
+			}
+		}
+		else if(tamanho == 'M'){
+			if(getCafeM()*(1-proporcaoLeite) <= Estoque.getCafe() && leiteM*proporcaoLeite <= Estoque.getLeite()){
+				return true;
+			}
+		}
+		else if(getCafeG()*(1-proporcaoLeite) <= Estoque.getCafe() && leiteM*proporcaoLeite <= Estoque.getLeite()){
+			return true;
+		}
+		setStatus("Interrompido. Motivo: Falta de ingredientes");
+		return false;
+	}
+
+	public double getLeiteP(){
+		return leiteP;
+	}
+
+	public double getLeiteM(){
+		return leiteM;
+	}
+
+	public double getLeiteG(){
+		return leiteG;
+	}
+
+	public double getProporcaoLeite(){
+		return proporcaoLeite;
 	}
 }
 	
