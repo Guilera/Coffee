@@ -1,3 +1,5 @@
+package maquina;
+
 public class Cappucino extends CafeComLeite{
 	private final double chocolateP = 8;
 	private final double chocolateM = 16;

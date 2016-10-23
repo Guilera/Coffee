@@ -1,3 +1,5 @@
+package maquina;
+
 public class CafeComLeite extends Cafe{
 	private final double leiteP = 16;
 	private final double leiteM = 32;

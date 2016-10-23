@@ -1,3 +1,5 @@
+package maquina;
+
 public abstract class Bebida{
 	private double preco;
 	private char tamanho;
@@ -31,18 +33,21 @@ public abstract class Bebida{
 
 	public boolean venda(double money){
 		if(money >= preco){
-			setStatus("Vendida");
+			status = "Vendida";
 			return true;
 		}
-		setStatus("Interrompida. Motivo: Dinheiro insuficiente");
+		status = "Interrompida. Motivo: Dinheiro insuficiente";
 		return false;
 	}
 
 	public void cancelamento(){
-		setStatus("Cancelada pelo cliente");
+		status = "Cancelada pelo cliente";
 	}
-	
+
+
+
 	public abstract void fazBebida(char tamanho);
+
 	public abstract boolean checaIngredientes(char tamanho);
 
 }

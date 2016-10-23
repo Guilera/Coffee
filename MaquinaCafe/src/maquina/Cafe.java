@@ -1,3 +1,5 @@
+package maquina;
+
 public class Cafe extends Bebida{
 	private final double cafeP = 16;
 	private final double cafeM = 32;

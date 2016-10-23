@@ -1,3 +1,5 @@
+package maquina;
+
 public class Chocolate extends Bebida{
 	private final double chocolateP = 24;
 	private final double chocolateM = 48;
