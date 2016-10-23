@@ -3,7 +3,6 @@ package gui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,13 +14,8 @@ import javafx.stage.Stage;
 import maquina.Maquina;
 
 import java.io.IOException;
-import java.net.URL;
-import java.rmi.activation.ActivationID;
-import java.util.ResourceBundle;
 
 public class Controller{
-
-    private Maquina maq;
 
     @FXML
     private VBox boxValores;
@@ -38,56 +32,51 @@ public class Controller{
     @FXML
     private TextField nome, cpf, username, senha;
 
-    public Controller() throws IOException {
-    }
+    public Controller() throws IOException {}
 
     @FXML
     public void toogleDefinirValor(ActionEvent e){
         boxValores.setVisible(!boxValores.isVisible());
     }
 
-    public void initialize(ActionEvent e) throws IOException, NullPointerException {
+    @FXML
+    public void initializeButton(ActionEvent e) throws IOException {
         if(definirValores.isSelected()) {
-            maq = new Maquina(modelo.getText().trim(), endereco.getText().trim(), Double.parseDouble(cafeP.getText().trim()), Double.parseDouble(cafeM.getText().trim()),
+            Maquina.setInstance(new Maquina(modelo.getText().trim(), endereco.getText().trim(), Double.parseDouble(cafeP.getText().trim()), Double.parseDouble(cafeM.getText().trim()),
                     Double.parseDouble(cafeG.getText().trim()), Double.parseDouble(leiteP.getText().trim()), Double.parseDouble(leiteM.getText().trim()),
                     Double.parseDouble(leiteG.getText().trim()), Double.parseDouble(cappuP.getText().trim()), Double.parseDouble(cappuM.getText().trim()),
                     Double.parseDouble(cappuG.getText().trim()), Double.parseDouble(chocoP.getText().trim()), Double.parseDouble(chocoM.getText().trim()),
-                    Double.parseDouble(chocoG.getText().trim()));
+                    Double.parseDouble(chocoG.getText().trim())));
         }else {
-            maq = new Maquina(modelo.getText().trim(), endereco.getText().trim());
-            System.out.println("inicializada");
-            System.out.println(maq.getValorCafeP());
+            Maquina.setInstance(new Maquina(modelo.getText().trim(), endereco.getText().trim()));
         }
-       /* valorCafeP.setText(Double.toString(maq.getValorCafeP()));
-        valorCafeM.setText(Double.toString(maq.getValorCafeM()));
-        valorCafeG.setText(Double.toString(maq.getValorCafeG()));
-        valorLeiteP.setText(Double.toString(maq.getValorCafeLeiteP()));
-        valorLeiteM.setText(Double.toString(maq.getValorCafeLeiteM()));
-        valorLeiteG.setText(Double.toString(maq.getValorCafeLeiteG()));
-        valorCappucinoP.setText(Double.toString(maq.getValorCappucinoP()));
-        valorCappucinoM.setText(Double.toString(maq.getValorCappucinoM()));
-        valorCappucinoG.setText(Double.toString(maq.getValorCappucinoG()));
-        valorChocolateP.setText(Double.toString(maq.getValorChocolateP()));
-        valorChocolateM.setText(Double.toString(maq.getValorChocolateM()));
-        valorChocolateG.setText(Double.toString(maq.getValorChocolateG()));*/
-
         Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("inicializaChaveMestra.fxml"))));
         stage.show();
     }
 
+    @FXML
     public void inicializaChaveMestra(ActionEvent e) throws IOException {
-        if(maq.adicionaChaveMestre(senha.getText().trim()))
-            System.out.println("adicionou chave");
-        System.out.println(maq.logar("adm", senha.getText().trim()));
-        /*Parent estado0 = FXMLLoader.load(getClass().getResource("estado0.fxml"));
+        System.out.println(Maquina.getInstance());
+        System.out.println(Maquina.getInstance().getEndereço());
+        Maquina.getInstance().adicionaChaveMestre(senha.getText().trim());
+        Parent estado0 = FXMLLoader.load(getClass().getResource("estado0.fxml"));
         Stage stage = (Stage) ((Button) e.getSource()).getScene().getWindow();
         stage.setScene(new Scene(estado0, 600, 300));
-        stage.show();*/
-    }
+        stage.show();
 
-
-    public void changeCafe(ActionEvent e){
-
+        System.out.println(Maquina.getInstance().getValorCafeP());
+        valorCafeP.setText("lixo aqui");
+       /* valorCafeM.setText(Double.toString(Maquina.getInstance().getValorCafeM()));
+        valorCafeG.setText(Double.toString(Maquina.getInstance().getValorCafeG()));
+        valorLeiteP.setText(Double.toString(Maquina.getInstance().getValorCafeLeiteP()));
+        valorLeiteM.setText(Double.toString(Maquina.getInstance().getValorCafeLeiteM()));
+        valorLeiteG.setText(Double.toString(Maquina.getInstance().getValorCafeLeiteG()));
+        valorCappucinoP.setText(Double.toString(Maquina.getInstance().getValorCappucinoP()));
+        valorCappucinoM.setText(Double.toString(Maquina.getInstance().getValorCappucinoM()));
+        valorCappucinoG.setText(Double.toString(Maquina.getInstance().getValorCappucinoG()));
+        valorChocolateP.setText(Double.toString(Maquina.getInstance().getValorChocolateP()));
+        valorChocolateM.setText(Double.toString(Maquina.getInstance().getValorChocolateM()));
+        valorChocolateG.setText(Double.toString(Maquina.getInstance().getValorChocolateG()));*/
     }
 }

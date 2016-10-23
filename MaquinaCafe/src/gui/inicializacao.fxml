@@ -20,7 +20,7 @@
             <Label text="Modelo" GridPane.columnIndex="0" GridPane.rowIndex="0" />
             <TextField fx:id="modelo" GridPane.columnIndex="1" GridPane.rowIndex="0" />
             <Label text="Endereço" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="1" />
-            <TextField fx:id="endereco" alignment="CENTER" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
+            <TextField fx:id="endereco" GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="1" />
             <RadioButton fx:id="definirValores" selected="false" onAction="#toogleDefinirValor" text="Definir Valor das Bebidas" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
             <VBox fx:id="boxValores" visible="false" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.rowIndex="3">
                 <GridPane hgap="10" vgap="10">
@@ -72,7 +72,7 @@
         </GridPane>
     </center>
     <bottom>
-        <Button fx:id="initializeButton" alignment="CENTER_RIGHT" onAction="#initialize" text="Next" BorderPane.alignment="CENTER_RIGHT" />
+        <Button fx:id="initializeButton" alignment="CENTER_RIGHT" onAction="#initializeButton" text="Next" BorderPane.alignment="CENTER_RIGHT" />
     </bottom>
    <padding>
       <Insets bottom="10.0" left="10.0" right="10.0" top="10" />

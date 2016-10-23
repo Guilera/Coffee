@@ -3,12 +3,22 @@ package maquina;
 import maquina.gerencia.Gerencia;
 
 public class Maquina implements IMaquina {
+
     private String modelo, endereço;
     private double valorCafeP, valorCafeM, valorCafeG, valorCafeLeiteP, valorCafeLeiteM, valorCafeLeiteG, valorCappucinoP,
             valorCappucinoM, valorCappucinoG, valorChocolateP, valorChocolateM, valorChocolateG;
     private Gerencia adm;
     private Estoque estoque;
 
+    private static Maquina instance = new Maquina("empty", "empty");
+
+    public static Maquina getInstance() {
+        return instance;
+    }
+
+    public static void setInstance(Maquina instance) {
+        Maquina.instance = instance;
+    }
 
     public Maquina(String modelo, String endereço) {
         this(modelo, endereço,2.50,5,7.50,3,6,9,3.50,7,10.50,3,6,9);
@@ -30,6 +40,22 @@ public class Maquina implements IMaquina {
         this.valorChocolateM = valorChocolateM;
         this.valorChocolateG = valorChocolateG;
         adm = new Gerencia();
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getEndereço() {
+        return endereço;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public void setEndereço(String endereço) {
+        this.endereço = endereço;
     }
 
     public double getValorCafeP() {
