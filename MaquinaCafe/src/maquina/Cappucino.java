@@ -13,13 +13,13 @@ public class Cappucino extends CafeComLeite{
 	}
 
 	@Override
-	public boolean checaIngredientes(char tamanho){
-		if(tamanho == 'P'){
+	public boolean checaIngredientes(){
+		if(getTamanho() == 'P'){
 			if((getCafeP()*getProporcaoLeite()) <= Estoque.getCafe() && (getLeiteP()*getProporcaoLeite()) <= Estoque.getLeite() && chocolateP <= Estoque.getChocolate() && canelaP <= Estoque.getCanela()){
 				return true;
 			}
 		}
-		else if(tamanho == 'M'){
+		else if(getTamanho() == 'M'){
 			if((getCafeM()*getProporcaoLeite()) <= Estoque.getCafe() && (getLeiteM()*getProporcaoLeite()) <= Estoque.getLeite() && chocolateM <= Estoque.getChocolate() && canelaM <= Estoque.getCanela()){
 				return true;
 			}
@@ -32,14 +32,14 @@ public class Cappucino extends CafeComLeite{
 	}
 
 	@Override
-	public void fazBebida(char tamanho){
-		if(tamanho == 'P'){
+	public void fazBebida(){
+		if(getTamanho() == 'P'){
 			Estoque.consomeCafe(getCafeP()*getProporcaoLeite());
 			Estoque.consomeLeite(getLeiteP()*getProporcaoLeite());
 			Estoque.consomeChocolate(chocolateP);
 			Estoque.consomeCanela(canelaP);
 		}
-		else if(tamanho == 'M'){
+		else if(getTamanho() == 'M'){
 			Estoque.consomeCafe(getCafeM()*getProporcaoLeite());
 			Estoque.consomeLeite(getLeiteM()*getProporcaoLeite());
 			Estoque.consomeChocolate(chocolateM);

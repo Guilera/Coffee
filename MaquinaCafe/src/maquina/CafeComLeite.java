@@ -12,12 +12,12 @@ public class CafeComLeite extends Cafe{
 	}
 
 	@Override
-	public void fazBebida(char tamanho){
-		if(tamanho == 'P'){
+	public void fazBebida(){
+		if(getTamanho() == 'P'){
 			Estoque.consomeCafe(getCafeP()*(1-proporcaoLeite));
 			Estoque.consomeLeite(leiteP*proporcaoLeite);
 		}
-		else if(tamanho == 'M'){
+		else if(getTamanho() == 'M'){
 			Estoque.consomeCafe(getCafeM()*(1-proporcaoLeite));
 			Estoque.consomeLeite(leiteM*proporcaoLeite);
 		}
@@ -28,13 +28,13 @@ public class CafeComLeite extends Cafe{
 	}
 
 	@Override
-	public boolean checaIngredientes(char tamanho){
-		if(tamanho == 'P'){
+	public boolean checaIngredientes(){
+		if(getTamanho() == 'P'){
 			if(getCafeP()*(1-proporcaoLeite) <= Estoque.getCafe() && leiteP*proporcaoLeite <= Estoque.getLeite()){
 				return true;
 			}
 		}
-		else if(tamanho == 'M'){
+		else if(getTamanho() == 'M'){
 			if(getCafeM()*(1-proporcaoLeite) <= Estoque.getCafe() && leiteM*proporcaoLeite <= Estoque.getLeite()){
 				return true;
 			}

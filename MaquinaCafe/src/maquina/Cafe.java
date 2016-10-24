@@ -10,11 +10,12 @@ public class Cafe extends Bebida{
 	}
 
 	@Override
-	public void fazBebida(char tamanho){
-		if(tamanho == 'P'){
+	public void fazBebida(){
+
+		if(getTamanho() == 'P'){
 			Estoque.consomeCafe(cafeP);
 		}
-		else if(tamanho == 'M'){
+		else if(getTamanho() == 'M'){
 			Estoque.consomeCafe(cafeM);
 		}
 		else {
@@ -23,13 +24,13 @@ public class Cafe extends Bebida{
 	}
 	
 	@Override
-	public boolean checaIngredientes(char tamanho){
-		if(tamanho == 'P'){
+	public boolean checaIngredientes(){
+		if(getTamanho() == 'P'){
 			if(cafeP <= Estoque.getCafe()){
 				return true;
 			}
 		}
-		else if(tamanho == 'M'){
+		else if(getTamanho() == 'M'){
 			if(cafeM <= Estoque.getCafe()){
 				return true;
 			}

@@ -9,12 +9,13 @@ import java.util.Map;
 public class Gerencia implements IGerencia {
 	private Map<String, Funcionario> users;
 	private Funcionario logado;
-	private ArrayList<Bebida> historicoPedidos;
+	private ArrayList<Bebida> vendidas, canceladas;
 
 	public Gerencia() {
 		users = new HashMap();
 		logado = null;
-		historicoPedidos = new ArrayList<Bebida>();
+		vendidas = new ArrayList<Bebida>();
+		canceladas = new ArrayList<Bebida>();
 	}
 
 	@Override
@@ -32,8 +33,13 @@ public class Gerencia implements IGerencia {
 	}
 
 	@Override
-	public void addHistorico(Bebida bebida){
-		historicoPedidos.add(bebida);
+	public void addVendida(Bebida bebida){
+		vendidas.add(bebida);
+	}
+
+	@Override
+	public void addCancelada(Bebida bebida) {
+		canceladas.add(bebida);
 	}
 
 	@Override

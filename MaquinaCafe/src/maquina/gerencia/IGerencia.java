@@ -11,7 +11,9 @@ public interface IGerencia {
 
 	void recolheDinheiro();
 
-	void addHistorico(Bebida bebida);
+	void addVendida(Bebida bebida);
+
+	void addCancelada(Bebida bebida);
 
 	boolean adicionaFuncionario(String nome, String cpf, String username, String senha);
 

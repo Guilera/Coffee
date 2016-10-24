@@ -4,6 +4,7 @@ public abstract class Bebida{
 	private double preco;
 	private char tamanho;
 	private String status;
+	private int acucar;
 
 	public Bebida(double preco, char tamanho){
 		this.tamanho = tamanho;
@@ -11,43 +12,39 @@ public abstract class Bebida{
 		status = "Pedida";
 	}
 
-	public void setStatus(String s){
-		status = s;
+	public double getPreco() {
+		return preco;
 	}
 
-	public boolean checaAcucar(int acucar){
-		if(acucar <= Estoque.getAcucar()){
-			recalculaPreco(acucar);
-			return true;
-		}
-		return false;
+	public char getTamanho() {
+		return tamanho;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public void adicionaAcucar(int acucar){
-		Estoque.consomeAcucar(acucar);
+		this.acucar = acucar;
+		recalculaPreco();
 	}
 
-	public void recalculaPreco(int acucar){
-		preco+=acucar*0.10;
+	public void recalculaPreco(){
+		preco += acucar*0.10;
 	}
 
 	public boolean venda(double money){
 		if(money >= preco){
 			status = "Vendida";
+			fazBebida();
+			Estoque.consomeAcucar(acucar);
 			return true;
 		}
-		status = "Interrompida. Motivo: Dinheiro insuficiente";
 		return false;
 	}
 
-	public void cancelamento(){
-		status = "Cancelada pelo cliente";
-	}
+	public abstract void fazBebida();
 
-
-
-	public abstract void fazBebida(char tamanho);
-
-	public abstract boolean checaIngredientes(char tamanho);
+	public abstract boolean checaIngredientes();
 
 }

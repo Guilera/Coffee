@@ -13,11 +13,11 @@ public class Chocolate extends Bebida{
 	}
 
 	@Override
-	public boolean checaIngredientes(char tamanho){
-		if(tamanho == 'P'){
+	public boolean checaIngredientes(){
+		if(getTamanho() == 'P'){
 			if(chocolateP <= Estoque.getChocolate() && leiteP <= Estoque.getLeite()) return true;
 		}
-		else if(tamanho == 'M'){
+		else if(getTamanho() == 'M'){
 			if(chocolateM <= Estoque.getChocolate() && leiteM <= Estoque.getLeite()) return true;
 		}
 		else if(chocolateG <= Estoque.getChocolate() && leiteG <= Estoque.getLeite()) return true;
@@ -26,12 +26,12 @@ public class Chocolate extends Bebida{
 	}
 	
 	@Override
-	public void fazBebida(char tamanho){
-		if(tamanho == 'P'){
+	public void fazBebida(){
+		if(getTamanho() == 'P'){
 			Estoque.consomeChocolate(chocolateP);
 			Estoque.consomeLeite(leiteP);
 		}
-		else if(tamanho == 'M'){
+		else if(getTamanho() == 'M'){
 			Estoque.consomeChocolate(chocolateM);
 			Estoque.consomeLeite(leiteM);
 		}

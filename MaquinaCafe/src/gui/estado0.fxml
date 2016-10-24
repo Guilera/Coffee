@@ -3,25 +3,28 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<BorderPane xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.Controller">
-    <top>
-        <Label text="Escolha sua bebida" BorderPane.alignment="CENTER" />
-    </top>
+<BorderPane fx:id="mainPane" prefHeight="411.0" prefWidth="720.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
     <padding>
         <Insets bottom="10.0" left="10.0" right="10.0" top="10" />
     </padding>
    <center>
       <GridPane BorderPane.alignment="CENTER">
         <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="128.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="95.0" minWidth="10.0" prefWidth="40.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -31,35 +34,75 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="17.0" prefWidth="65.0" text="Pequeno R$" GridPane.rowIndex="1" />
-            <Label layoutX="10.0" layoutY="47.0" prefHeight="17.0" prefWidth="65.0" text="Médio R$" GridPane.rowIndex="2" />
-            <Label layoutX="10.0" layoutY="77.0" prefHeight="17.0" prefWidth="65.0" text="Grande R$" GridPane.rowIndex="3" />
-            <ToggleButton mnemonicParsing="false" text="Café" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <ToggleButton mnemonicParsing="false" text="Café c/ Leite" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <ToggleButton layoutX="210.0" layoutY="13.0" mnemonicParsing="false" text="Cappucino" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <ToggleButton layoutX="310.0" layoutY="13.0" mnemonicParsing="false" text="Chocolate" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Label fx:id="valorCafeP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
-            <Label fx:id="valorCafeM" layoutX="146.0" layoutY="47.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
-            <Label fx:id="valorCafeG" layoutX="110.0" layoutY="77.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
-            <Label fx:id="valorLeiteP" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Label fx:id="valorLeiteM" alignment="CENTER" layoutX="210.0" layoutY="47.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Label fx:id="valorLeiteG" layoutX="210.0" layoutY="77.0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Label fx:id="valorCappucinoP" layoutX="210.0" layoutY="107.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Label fx:id="valorCappucinoM" layoutX="210.0" layoutY="47.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Label fx:id="valorCappucinoG" layoutX="310.0" layoutY="77.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-            <Label fx:id="valorChocolateP" layoutX="310.0" layoutY="107.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Label fx:id="valorChocolateM" layoutX="410.0" layoutY="47.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Label fx:id="valorChocolateG" layoutX="410.0" layoutY="77.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+             <ToggleButton prefHeight="17.0" prefWidth="70.0" text="Pequeno" userData="P" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+               <toggleGroup>
+                  <ToggleGroup fx:id="tamanhoGroup" />
+               </toggleGroup></ToggleButton>
+             <ToggleButton layoutX="10.0" layoutY="47.0" prefHeight="17.0" prefWidth="70.0" text="Médio" toggleGroup="$tamanhoGroup" userData="M" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+             <ToggleButton layoutX="10.0" layoutY="77.0" prefHeight="17.0" prefWidth="70.0" text="Grande" toggleGroup="$tamanhoGroup" userData="G" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+             <ToggleButton mnemonicParsing="false" text="Café" textAlignment="CENTER" userData="cafe" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <toggleGroup>
+                  <ToggleGroup fx:id="bebidasGroup" />
+               </toggleGroup></ToggleButton>
+             <ToggleButton fx:id="cafeLeiteButton" mnemonicParsing="false" text="Café c/ Leite" textAlignment="CENTER" toggleGroup="$bebidasGroup" userData="leite" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+             <ToggleButton layoutX="210.0" layoutY="13.0" mnemonicParsing="false" text="Cappucino" textAlignment="CENTER" toggleGroup="$bebidasGroup" userData="cappu" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+             <ToggleButton layoutX="310.0" layoutY="13.0" mnemonicParsing="false" text="Chocolate" textAlignment="CENTER" toggleGroup="$bebidasGroup" userData="choco" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Label text="R$" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label fx:id="valorCafeP" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+            <Label fx:id="valorCafeM" layoutX="146.0" layoutY="47.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Label fx:id="valorCafeG" layoutX="110.0" layoutY="77.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+            <Label fx:id="valorLeiteP" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label fx:id="valorLeiteM" alignment="CENTER" layoutX="210.0" layoutY="47.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label fx:id="valorLeiteG" layoutX="210.0" layoutY="77.0" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Label fx:id="valorCappucinoP" layoutX="210.0" layoutY="107.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label fx:id="valorCappucinoM" layoutX="210.0" layoutY="47.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label fx:id="valorCappucinoG" layoutX="310.0" layoutY="77.0" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Label fx:id="valorChocolateP" layoutX="310.0" layoutY="107.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label fx:id="valorChocolateM" layoutX="410.0" layoutY="47.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label fx:id="valorChocolateG" layoutX="410.0" layoutY="77.0" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Label layoutX="153.0" layoutY="47.0" text="R$" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+            <Label layoutX="153.0" layoutY="77.0" text="R$" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+            <Slider fx:id="proporcao" blockIncrement="25.0" disable="true" max="75.0" min="25.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="50.0" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+            <Label fx:id="proporcaoLabel" disable="true" text="Proporção de Leite" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" GridPane.columnSpan="3" GridPane.rowIndex="6">
+               <children>
+                  <Button fx:id="pedidoButton" mnemonicParsing="false" onAction="#processaPedido" text="Processa Pedido" textAlignment="CENTER" wrapText="true" />
+                  <Label fx:id="resultado" prefHeight="31.0" prefWidth="223.0" />
+               </children>
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin>
+            </HBox>
          </children>
       </GridPane>
    </center>
+   <right>
+      <VBox maxHeight="60.0" prefHeight="60.0" prefWidth="90.0" BorderPane.alignment="CENTER">
+         <children>
+             <Label alignment="CENTER" contentDisplay="CENTER" text="AÇUCAR" textAlignment="CENTER" />
+             <Spinner fx:id="acucarSpinner" prefWidth="80.0" VBox.vgrow="ALWAYS" />
+             <Label contentDisplay="RIGHT" text="R$ 0,10/unidade" textAlignment="RIGHT" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </right>
+   <top>
+      <AnchorPane prefHeight="29.0" prefWidth="649.0" BorderPane.alignment="CENTER">
+         <children>
+              <Label contentDisplay="RIGHT" layoutX="264.0" layoutY="2.0" prefHeight="25.0" prefWidth="131.0" text="Escolha sua bebida" textAlignment="CENTER" />
+            <Button fx:id="gerenciaButton" layoutY="2.0" mnemonicParsing="false" text="Gerencia" />
+         </children>
+      </AnchorPane>
+   </top>
    <bottom>
-      <Button mnemonicParsing="false" text="change" BorderPane.alignment="CENTER">
-         <graphic>
-            <TextField fx:id="newValue" />
-         </graphic>
-      </Button>
+      <AnchorPane prefHeight="17.0" prefWidth="697.0" BorderPane.alignment="CENTER">
+         <children>
+              <Button alignment="CENTER_RIGHT" layoutX="594.0" layoutY="5.0" onAction="#goToPagamentoDialog" prefHeight="33.0" prefWidth="79.0" text="Pagamento" textAlignment="CENTER" />
+         </children>
+      </AnchorPane>
    </bottom>
 </BorderPane>

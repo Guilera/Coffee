@@ -1,7 +1,7 @@
 package maquina;
 
 public class Estoque{
-	private static double cafe=10000, leite=10000, acucar=10000, chocolate=10000, canela=10000;
+	private static double cafe=10000, leite=10000, acucar=1000, chocolate=10000, canela=10000;
 
 	public Estoque(){}
 

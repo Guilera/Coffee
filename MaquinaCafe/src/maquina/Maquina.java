@@ -9,6 +9,7 @@ public class Maquina implements IMaquina {
             valorCappucinoM, valorCappucinoG, valorChocolateP, valorChocolateM, valorChocolateG;
     private Gerencia adm;
     private Estoque estoque;
+    private Bebida bebidaProcessada;
 
     private static Maquina instance = new Maquina("empty", "empty");
 
@@ -40,6 +41,7 @@ public class Maquina implements IMaquina {
         this.valorChocolateM = valorChocolateM;
         this.valorChocolateG = valorChocolateG;
         adm = new Gerencia();
+        bebidaProcessada = null;
     }
 
     public String getModelo() {
@@ -134,6 +136,26 @@ public class Maquina implements IMaquina {
         return valorChocolateP;
     }
 
+    public double getCafe(){
+        return Estoque.getCafe();
+    }
+
+    public double getLeite(){
+        return Estoque.getLeite();
+    }
+
+    public double getChocolate(){
+        return Estoque.getChocolate();
+    }
+
+    public double getCanela(){
+        return Estoque.getCanela();
+    }
+
+    public double getAcucar(){
+        return Estoque.getAcucar();
+    }
+
     public void setValorChocolateP(double valorChocolateP) {
         this.valorChocolateP = valorChocolateP;
     }
@@ -152,6 +174,14 @@ public class Maquina implements IMaquina {
 
     public void setValorChocolateG(double valorChocolateG) {
         this.valorChocolateG = valorChocolateG;
+    }
+
+    public Bebida getBebidaProcessada() {
+        return bebidaProcessada;
+    }
+
+    public void setBebidaProcessada(Bebida bebidaProcessada) {
+        this.bebidaProcessada = bebidaProcessada;
     }
 
     @Override
@@ -177,5 +207,107 @@ public class Maquina implements IMaquina {
     @Override
     public void adicionaChaveMestre(String senha) {
         adm.adicionaChaveMestre(senha);
+    }
+
+    @Override
+    public double getValorBebida(String tipo, char tamanho) {
+        double x = 0;
+        switch (tipo.toLowerCase()) {
+            case "cafe":
+                if (tamanho == 'P') {
+                    x = valorCafeP;
+                } else if (tamanho == 'M') {
+                    x = valorCafeM;
+                } else {
+                    x = valorCafeG;
+                }break;
+            case "leite":
+                if(tamanho == 'P') {
+                    x = valorCafeLeiteP;
+                }else if(tamanho == 'M') {
+                    x = valorCafeLeiteM;
+                }else {
+                    x = valorCafeLeiteG;
+                }break;
+            case "cappu":
+                if(tamanho == 'P') {
+                    x = valorCappucinoP;
+                }else if(tamanho == 'M') {
+                    x = valorCappucinoM;
+                }else {
+                    x = valorCappucinoG;
+                }break;
+            case "choco":
+                if(tamanho == 'P') {
+                    x = valorChocolateP;
+                }else if(tamanho == 'M') {
+                    x = valorChocolateM;
+                }else {
+                    x = valorChocolateG;
+                }break;
+        }
+        return x;
+    }
+
+    @Override
+    public double getTotal() {
+        return bebidaProcessada.getPreco();
+    }
+
+    @Override
+    public void adicionaAcucar(int acucar) {
+        bebidaProcessada.adicionaAcucar(acucar);
+    }
+
+    @Override
+    public void processaBebida(String tipo, double preco, char tamanho, double proporcao) {
+        switch(tipo) {
+            case "cafe":
+                bebidaProcessada = new Cafe(preco, tamanho);
+                break;
+            case "leite":
+                bebidaProcessada = new CafeComLeite(preco, tamanho, proporcao);
+                break;
+            case "cappu":
+                bebidaProcessada = new Cappucino(preco, tamanho);
+                break;
+            case "choco":
+                bebidaProcessada = new Chocolate(preco, tamanho);
+                break;
+        }
+    }
+
+    @Override
+    public boolean checaIngrediente() {
+        if(bebidaProcessada.checaIngredientes()){
+            return true;
+        }else{
+            adm.addCancelada(bebidaProcessada);
+            bebidaProcessada = null;
+            return false;
+        }
+    }
+
+    @Override
+    public boolean vendeBebida(double pagamento) {
+        if(bebidaProcessada.venda(pagamento)){
+            adm.addVendida(bebidaProcessada);
+            bebidaProcessada = null;
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    @Override
+    public void cancelar() {
+        bebidaProcessada.setStatus("Cancelada, pagamento insuficiente");
+        adm.addCancelada(bebidaProcessada);
+        bebidaProcessada = null;
+    }
+
+    @Override
+    public boolean temBebidaEmProcesso() {
+        return (bebidaProcessada != null);
     }
 }
