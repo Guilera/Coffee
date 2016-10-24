@@ -4,7 +4,7 @@ public abstract class Bebida{
 	private double preco;
 	private char tamanho;
 	private String status;
-	private int acucar;
+	private double acucar;
 
 	public Bebida(double preco, char tamanho){
 		this.tamanho = tamanho;
@@ -34,7 +34,7 @@ public abstract class Bebida{
 	}
 
 	public boolean venda(double money){
-		if(money >= preco){
+		if((float)money >= (float)preco){
 			status = "Vendida";
 			fazBebida();
 			Estoque.consomeAcucar(acucar);
