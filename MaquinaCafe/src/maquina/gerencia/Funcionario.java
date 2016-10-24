@@ -18,6 +18,10 @@ public class Funcionario {
 		return password;
 	}
 
+	public String getNome() {
+		return nome;
+	}
+
 	public boolean logar(String pass) {
 		if (password.equals(pass)) return true;
 		return false;

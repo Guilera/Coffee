@@ -310,4 +310,34 @@ public class Maquina implements IMaquina {
     public boolean temBebidaEmProcesso() {
         return (bebidaProcessada != null);
     }
+
+    @Override
+    public double getFaturamento() {
+        return adm.getFaturamento();
+    }
+
+    @Override
+    public void excluirUser(String username) {
+        adm.excluirUser(username);
+    }
+
+    @Override
+    public void recolherFaturamento() {
+        adm.recolheDinheiro();
+    }
+
+    @Override
+    public boolean isGerenteLogado() {
+        return adm.isGerenteLogado();
+    }
+
+    @Override
+    public String getLog() {
+        return adm.getLog();
+    }
+
+    @Override
+    public void entradaLog(String s) {
+        adm.entradaLog(s);
+    }
 }

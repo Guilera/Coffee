@@ -85,7 +85,7 @@
       <VBox maxHeight="60.0" prefHeight="60.0" prefWidth="90.0" BorderPane.alignment="CENTER">
          <children>
              <Label alignment="CENTER" contentDisplay="CENTER" text="AÇUCAR" textAlignment="CENTER" />
-             <Spinner fx:id="acucarSpinner" prefWidth="80.0" VBox.vgrow="ALWAYS" />
+             <Spinner fx:id="acucarSpinner" prefWidth="80.0" VBox.vgrow="ALWAYS" editable="true" />
              <Label contentDisplay="RIGHT" text="R$ 0,10/unidade" textAlignment="RIGHT" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
@@ -94,7 +94,7 @@
       <AnchorPane prefHeight="29.0" prefWidth="649.0" BorderPane.alignment="CENTER">
          <children>
               <Label contentDisplay="RIGHT" layoutX="264.0" layoutY="2.0" prefHeight="25.0" prefWidth="131.0" text="Escolha sua bebida" textAlignment="CENTER" />
-            <Button fx:id="gerenciaButton" layoutY="2.0" mnemonicParsing="false" text="Gerencia" />
+            <Button layoutY="2.0" mnemonicParsing="false" onAction="#openLoginDialog" text="Gerencia" />
          </children>
       </AnchorPane>
    </top>

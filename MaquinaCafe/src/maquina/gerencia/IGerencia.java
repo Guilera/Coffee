@@ -3,11 +3,12 @@ package maquina.gerencia;
 import maquina.Bebida;
 
 public interface IGerencia {
+
 	boolean logar(String user, String pass);
 
 	void deslogar();
 
-	void refilEstoque();
+	double getFaturamento();
 
 	void recolheDinheiro();
 
@@ -20,5 +21,13 @@ public interface IGerencia {
 	boolean adicionaGerente(String nome, String cpf, String username, String senha);
 
 	void adicionaChaveMestre(String senha);
+
+	void venda(double valor);
+
+	void excluirUser(String username);
+
+	boolean isGerenteLogado();
+
+	void entradaLog(String s);
 
 }

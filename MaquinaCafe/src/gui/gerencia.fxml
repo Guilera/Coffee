@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<TabPane prefHeight="500.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+    <Tab fx:id="tab1" closable="false" text="Containers">
+         <content>
+            <BorderPane prefHeight="200.0" prefWidth="200.0">
+               <center>
+                  <GridPane BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="refillCafe" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#refilCafe" prefHeight="90.0" prefWidth="90.0" text="CAFÉ" textAlignment="CENTER" wrapText="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="refillLeite" alignment="CENTER" layoutX="40.0" layoutY="206.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#refilLeite" prefHeight="90.0" prefWidth="90.0" text="LEITE" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="refillCanela" alignment="CENTER" layoutX="180.0" layoutY="206.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#refilCanela" prefHeight="90.0" prefWidth="90.0" text="CANELA" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="refillChoco" alignment="CENTER" layoutX="320.0" layoutY="206.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#refilChocolate" prefHeight="90.0" prefWidth="90.0" text="CHOCOLATE" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Button fx:id="refilAcucar" alignment="CENTER" layoutX="430.0" layoutY="206.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#refillAcucar" prefHeight="90.0" prefWidth="90.0" text="AÇUCAR" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <Label fx:id="nivelCafe" prefHeight="90.0" prefWidth="130.0" textAlignment="CENTER" wrapText="true" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nivelLeite" prefHeight="90.0" prefWidth="130.0" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nivelCanela" prefHeight="90.0" prefWidth="130.0" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nivelChoco" prefHeight="90.0" prefWidth="130.0" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="nivelAcucar" prefHeight="90.0" prefWidth="130.0" textAlignment="CENTER" wrapText="true" GridPane.columnIndex="4" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                           <font>
+                              <Font size="36.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </GridPane>
+               </center>
+               <bottom>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#logout" text="Logout" textAlignment="CENTER" BorderPane.alignment="CENTER">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </Button>
+               </bottom>
+               <opaqueInsets>
+                  <Insets bottom="10.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="10.0" />
+               </padding>
+            </BorderPane>
+         </content></Tab>
+    <Tab fx:id="tab2" closable="false" disable="true" text="Cadastro Funcionario">
+         <content>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="58.0" layoutY="74.0" prefHeight="40.0" prefWidth="100.0" text="Nome Completo" AnchorPane.bottomAnchor="357.0" />
+                  <Label layoutX="58.0" layoutY="137.0" prefHeight="40.0" prefWidth="100.0" text="CPF" textAlignment="CENTER" />
+                  <Label layoutX="58.0" layoutY="207.0" prefHeight="40.0" prefWidth="100.0" text="Username" />
+                  <Label layoutX="58.0" layoutY="269.0" prefHeight="40.0" prefWidth="100.0" text="Senha" />
+                  <TextField fx:id="nomeCompleto" layoutX="201.0" layoutY="82.0" prefHeight="25.0" prefWidth="300.0" />
+                  <TextField fx:id="cpf" layoutX="201.0" layoutY="145.0" prefHeight="25.0" prefWidth="300.0" />
+                  <TextField fx:id="usernameCadastro" layoutX="200.0" layoutY="215.0" prefHeight="25.0" prefWidth="300.0" />
+                  <TextField fx:id="senhaCadastro" layoutX="200.0" layoutY="277.0" prefHeight="25.0" prefWidth="300.0" />
+                  <Button layoutX="421.0" layoutY="377.0" mnemonicParsing="false" onAction="#adicionaFuncionario" prefHeight="40.0" prefWidth="80.0" text="Adiciona" textAlignment="CENTER" />
+                  <Button alignment="CENTER" contentDisplay="CENTER" layoutX="200.0" layoutY="377.0" mnemonicParsing="false" onAction="#limpaCampos" prefHeight="40.0" prefWidth="80.0" text="Limpa" textAlignment="CENTER" />
+                  <Button layoutX="563.0" layoutY="211.0" mnemonicParsing="false" onAction="#excluirFuncionario" prefHeight="34.0" prefWidth="104.0" text="Excluir" />
+                  <CheckBox fx:id="gerenteChoice" layoutX="58.0" layoutY="326.0" mnemonicParsing="false" text="Gerente" />
+               </children>
+            </AnchorPane>
+         </content></Tab>
+      <Tab fx:id="tab3" closable="false" disable="true" text="Faturamento">
+         <content>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="faturamento" alignment="CENTER" layoutX="235.0" layoutY="100.0" prefHeight="80.0" prefWidth="200.0" textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="285.0" layoutY="206.0" mnemonicParsing="false" onAction="#recolherFaturamento" prefHeight="80.0" prefWidth="100.0" text="sacar" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="tab4" closable="false" disable="true" text="Preço Bebidas">
+         <content>
+             <GridPane alignment="CENTER" hgap="10" vgap="10">
+                <children>
+                    <Label text="Pequeno" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+                    <Label text="Médio" GridPane.columnIndex="2" GridPane.halignment="CENTER" />
+                    <Label text="Grande" GridPane.columnIndex="3" GridPane.halignment="CENTER" />
+                    <Label text="Café" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <TextField fx:id="cafePGerencia" alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField fx:id="cafeMGerencia" alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <TextField fx:id="cafeGGerencia" alignment="CENTER_RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                    <Label text="Café c/ Leite" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <TextField fx:id="leitePGerencia" alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <TextField fx:id="leiteMGerencia" alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <TextField fx:id="leiteGGerencia" alignment="CENTER_RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                    <Label text="Cappucino" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                    <TextField fx:id="cappuPGerencia" alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                    <TextField fx:id="cappuMGerencia" alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                    <TextField fx:id="cappuGGerencia" alignment="CENTER_RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                    <Label text="Chocolate" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                    <TextField fx:id="chocoPGerencia" alignment="CENTER_RIGHT" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                    <TextField fx:id="chocoMGerencia" alignment="CENTER_RIGHT" GridPane.columnIndex="2" GridPane.rowIndex="4" />
+                    <TextField fx:id="chocoGGerencia" alignment="CENTER_RIGHT" GridPane.columnIndex="3" GridPane.rowIndex="4" />
+                  <Button mnemonicParsing="false" onAction="#atualizaPreco" prefHeight="25.0" prefWidth="89.0" text="Atualizar" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
+                </children>
+                 <columnConstraints>
+                     <ColumnConstraints />
+                     <ColumnConstraints maxWidth="144.0" minWidth="88.0" prefWidth="88.0" />
+                     <ColumnConstraints maxWidth="144.0" minWidth="88.0" prefWidth="88.0" />
+                  <ColumnConstraints maxWidth="144.0" minWidth="88.0" prefWidth="88.0" />
+                 </columnConstraints>
+                 <rowConstraints>
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                     <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                 </rowConstraints>
+             </GridPane>
+         </content></Tab>
+      <Tab fx:id="tab5" disable="true" text="log">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <TextArea fx:id="logArea" prefHeight="472.0" prefWidth="700.0" />
+               </children>
+            </AnchorPane>
+        </content>
+      </Tab>
+  </tabs>
+</TabPane>

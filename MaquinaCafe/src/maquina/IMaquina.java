@@ -27,4 +27,16 @@ public interface IMaquina {
     void cancelar();
 
     boolean temBebidaEmProcesso();
+
+    double getFaturamento();
+
+    void excluirUser(String username);
+
+    void recolherFaturamento();
+
+    boolean isGerenteLogado();
+
+    String getLog();
+
+    void entradaLog(String s);
 }
